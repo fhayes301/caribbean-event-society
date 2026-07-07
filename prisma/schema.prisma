@@ -1,0 +1,205 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────
+// ENUMS
+// ─────────────────────────────────────────
+
+enum Role {
+  member
+  admin
+}
+
+enum ProfileStatus {
+  pending
+  approved
+  rejected
+  hidden
+}
+
+enum AdminActionType {
+  approved
+  rejected
+  hidden
+  unhidden
+}
+
+enum EventStatus {
+  draft
+  pending
+  published
+  rejected
+}
+
+// ─────────────────────────────────────────
+// AUTH
+// ─────────────────────────────────────────
+
+model User {
+  id              String    @id @default(uuid())
+  email           String    @unique
+  passwordHash    String    @map("password_hash")
+  role            Role      @default(member)
+  emailVerifiedAt DateTime? @map("email_verified_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  refreshTokens    RefreshToken[]
+  profile          Profile?       @relation("UserProfile")
+  reviewedProfiles Profile[]      @relation("ProfileReviewer")
+  adminActions     AdminAction[]
+  createdEvents    Event[]        @relation("EventCreator")
+  reviewedEvents   Event[]        @relation("EventReviewer")
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  userId    String    @map("user_id")
+  tokenHash String    @map("token_hash")
+  expiresAt DateTime  @map("expires_at")
+  revokedAt DateTime? @map("revoked_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tokenHash])
+  @@map("refresh_tokens")
+}
+
+// ─────────────────────────────────────────
+// PROFILES & DIRECTORY
+// ─────────────────────────────────────────
+
+model Profile {
+  id               String        @id @default(uuid())
+  userId           String        @unique @map("user_id")
+  displayName      String        @map("display_name")
+  bio              String?
+  location         String?
+  websiteUrl       String?       @map("website_url")
+  profilePhotoUrl  String?       @map("profile_photo_url")  // headshot — shown on directory cards
+  featuredPhotoUrl String?       @map("featured_photo_url") // hero image — shown on full profile page
+  socialLinks      Json          @default("{}") @map("social_links")
+  status           ProfileStatus @default(pending)
+  reviewedBy       String?       @map("reviewed_by")
+  reviewedAt       DateTime?     @map("reviewed_at")
+  createdAt        DateTime      @default(now()) @map("created_at")
+  updatedAt        DateTime      @updatedAt @map("updated_at")
+
+  user         User              @relation("UserProfile", fields: [userId], references: [id], onDelete: Cascade)
+  reviewer     User?             @relation("ProfileReviewer", fields: [reviewedBy], references: [id])
+  categories   ProfileCategory[]
+  media        Media[]
+  adminActions AdminAction[]
+
+  @@index([status])
+  @@map("profiles")
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String   @unique
+  sortOrder Int      @default(0) @map("sort_order")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  profiles ProfileCategory[]
+
+  @@map("categories")
+}
+
+model ProfileCategory {
+  profileId  String @map("profile_id")
+  categoryId String @map("category_id")
+
+  profile  Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([profileId, categoryId])
+  @@map("profile_categories")
+}
+
+model Media {
+  id        String   @id @default(uuid())
+  profileId String   @map("profile_id")
+  url       String
+  sortOrder Int      @default(0) @map("sort_order")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId])
+  @@map("media")
+}
+
+// ─────────────────────────────────────────
+// ADMIN
+// ─────────────────────────────────────────
+
+model AdminAction {
+  id        String          @id @default(uuid())
+  adminId   String          @map("admin_id")
+  profileId String          @map("profile_id")
+  action    AdminActionType
+  note      String?
+  createdAt DateTime        @default(now()) @map("created_at")
+
+  admin   User    @relation(fields: [adminId], references: [id])
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId])
+  @@map("admin_actions")
+}
+
+// ─────────────────────────────────────────
+// EVENTS
+// ─────────────────────────────────────────
+
+model EventType {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String   @unique
+  sortOrder Int      @default(0) @map("sort_order")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  events Event[]
+
+  @@map("event_types")
+}
+
+model Event {
+  id              String      @id @default(uuid())
+  title           String
+  slug            String      @unique
+  description     String?
+  eventDate       DateTime    @map("event_date")
+  endDate         DateTime?   @map("end_date")
+  locationName    String?     @map("location_name")
+  imageUrl        String?     @map("image_url")
+  registrationUrl String?     @map("registration_url")
+  status          EventStatus @default(draft)
+  isFeatured      Boolean     @default(false) @map("is_featured")
+  publishedAt     DateTime?   @map("published_at")
+  eventTypeId     String?     @map("event_type_id")
+  createdBy       String      @map("created_by")
+  reviewedBy      String?     @map("reviewed_by")
+  reviewedAt      DateTime?   @map("reviewed_at")
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  eventType EventType? @relation(fields: [eventTypeId], references: [id])
+  creator   User       @relation("EventCreator", fields: [createdBy], references: [id])
+  reviewer  User?      @relation("EventReviewer", fields: [reviewedBy], references: [id])
+
+  @@index([eventDate])
+  @@index([status])
+  @@map("events")
+}
