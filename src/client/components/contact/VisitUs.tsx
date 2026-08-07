@@ -8,7 +8,7 @@ const VISIT_US_IMAGE_URL = "/images/mt.plaisir_grounds.jpg";
 export default function VisitUs() {
   return (
     <section className="bg-linen py-16 md:py-20">
-      <Container className="grid max-w-7xl gap-10 md:grid-cols-2 md:gap-12">
+      <Container className="grid max-w-7xl gap-10 sm:grid-cols-2 sm:gap-12">
         <div className="flex flex-col justify-center">
           <SectionHeading
             eyebrow="VISIT US"

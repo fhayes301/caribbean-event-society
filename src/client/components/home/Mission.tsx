@@ -11,10 +11,10 @@ import { LeafIcon } from "@/client/components/layout/icons";
  */
 export default function Mission() {
   return (
-    <section className="relative overflow-hidden bg-ivory py-10 md:py-10">
+    <section className="relative overflow-hidden bg-ivory py-14 md:py-20">
       <LeafIcon
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-16 h-80 w-80 text-forest/5 md:h-112 md:w-md"
+        className="pointer-events-none absolute -right-16 -top-16 hidden h-80 w-80 text-forest/5 sm:block md:h-112 md:w-md"
       />
       <Container className="relative max-w-7xl grid gap-10 md:grid-cols-2 md:gap-12">
         <SectionHeading

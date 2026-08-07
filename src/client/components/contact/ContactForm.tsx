@@ -44,7 +44,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} onChange={clearErrorOnChange} className="flex flex-col gap-4">
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label htmlFor={firstNameId} className="sr-only">
             First Name

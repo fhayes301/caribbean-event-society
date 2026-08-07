@@ -28,11 +28,11 @@ export default function Hero() {
         <div className="absolute inset-0 bg-linear-to-r from-charcoal/85 via-charcoal/55 to-charcoal/10" />
       </div>
 
-      <Container className="relative max-w-7xl py-20 md:py-28">
-        <h1 className="max-w-2xl font-display text-4xl text-ivory md:text-6xl">
+      <Container className="relative max-w-7xl py-14 sm:py-20 md:py-28">
+        <h1 className="max-w-2xl font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-6xl">
           Advancing Excellence in the Caribbean Event Industry
         </h1>
-        <p className="mt-6 max-w-xl font-body text-lg text-ivory/90">
+        <p className="mt-6 max-w-xl font-body text-base text-ivory/90 sm:text-lg">
           Caribbean Event Society is a professional membership organization dedicated to
           connecting, supporting, and elevating event professionals throughout the Caribbean and
           its diaspora.

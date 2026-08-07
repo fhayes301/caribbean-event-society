@@ -31,7 +31,7 @@ export default function MobileNav({ links }: MobileNavProps) {
   }, [isOpen]);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         ref={toggleRef}
         type="button"
@@ -51,7 +51,7 @@ export default function MobileNav({ links }: MobileNavProps) {
       {isOpen && (
         <div
           id="mobile-nav-panel"
-          className="fixed inset-x-0 top-16 z-40 border-b border-stone bg-ivory px-6 py-8"
+          className="fixed inset-x-0 top-20 z-40 max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-stone bg-ivory px-6 py-8"
         >
           <nav aria-label="Mobile">
             <ul className="flex flex-col gap-6">

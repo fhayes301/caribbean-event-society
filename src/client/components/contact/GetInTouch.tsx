@@ -9,8 +9,8 @@ import ContactForm from "./ContactForm";
 export default function GetInTouch() {
   return (
     <section className="bg-white py-16 md:py-20">
-      <Container className="grid max-w-7xl gap-10 md:grid-cols-2 md:gap-12">
-        <div>
+      <Container className="grid max-w-7xl gap-10 sm:grid-cols-2 sm:gap-12">
+        <div className="min-w-0">
           <SectionHeading eyebrow="GET IN TOUCH" headline="We're Here to Help" />
           <p className="mt-6 font-body text-base text-taupe">
             Whether you&rsquo;re an event professional, a potential member, a partner, or simply
@@ -22,21 +22,27 @@ export default function GetInTouch() {
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="font-body text-sm font-semibold uppercase tracking-widest text-gold">
             OTHER WAYS TO REACH US
           </p>
           <ul className="mt-6 flex flex-col gap-8">
             {CONTACT_METHODS.map((method) => (
               <li key={method.id}>
-                <IconTile Icon={method.Icon} label={method.label} description={method.description} />
-                <CtaLink
-                  href={`mailto:${method.email}`}
-                  showIcon={false}
-                  className="ml-14 mt-2 normal-case tracking-normal"
+                <IconTile
+                  Icon={method.Icon}
+                  label={method.label}
+                  description={method.description}
+                  align="left"
                 >
-                  {method.email}
-                </CtaLink>
+                  <CtaLink
+                    href={`mailto:${method.email}`}
+                    showIcon={false}
+                    className="mt-2 min-w-0 wrap-anywhere normal-case tracking-normal"
+                  >
+                    {method.email}
+                  </CtaLink>
+                </IconTile>
               </li>
             ))}
           </ul>

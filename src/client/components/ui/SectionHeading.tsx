@@ -31,7 +31,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 id={id} className={cn("mt-3 font-display text-3xl text-charcoal md:text-3xl", headlineClassName)}>
+      <h2 id={id} className={cn("mt-3 font-display text-2xl leading-tight text-charcoal sm:text-3xl md:text-4xl", headlineClassName)}>
         {headline}
       </h2>
     </div>

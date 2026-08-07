@@ -39,10 +39,13 @@ export function PersonCard({
           fallbackLabel={`Photo of ${name}`}
           width={200}
           height={200}
-          className="h-40 w-40"
+          className="h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-40 lg:w-40"
         />
       ) : (
-        <PlaceholderImage label={`Photo of ${name}`} className="h-40 w-40" />
+        <PlaceholderImage
+          label={`Photo of ${name}`}
+          className="h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-40 lg:w-40"
+        />
       )}
       <p className="mt-4 font-display text-lg text-charcoal">{name}</p>
       <p className="font-body text-xs uppercase tracking-wide text-taupe">{title}</p>

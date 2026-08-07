@@ -8,7 +8,7 @@ const VISION_IMAGE_URL = "/images/mt.plaisir_grounds.jpg";
 export default function Vision() {
   return (
     <section className="bg-white py-16 md:py-20">
-      <Container className="grid max-w-7xl gap-10 md:grid-cols-2 md:gap-12">
+      <Container className="grid max-w-7xl gap-6 md:grid-cols-2 md:gap-12">
         <div className="flex flex-col justify-center">
           <SectionHeading
             eyebrow="OUR VISION"
@@ -16,7 +16,7 @@ export default function Vision() {
           />
         </div>
 
-        <div className="relative min-h-80 md:min-h-105">
+        <div className="relative aspect-4/3 md:aspect-auto md:min-h-105">
           <ImageWithFallback
             src={VISION_IMAGE_URL}
             alt=""

@@ -10,8 +10,8 @@ const OUR_STORY_IMAGE_URL = "/images/carved_artwork.jpg";
 /** The "Our Story" section — CES's founding narrative alongside a photo. */
 export default function OurStory() {
   return (
-    <section className="bg-white py-16 md:py-20">
-      <Container className="grid max-w-7xl gap-10 md:grid-cols-2 md:gap-12">
+    <section className="bg-white py-10 md:py-20">
+      <Container className="grid max-w-7xl gap-6 md:grid-cols-2 md:gap-12">
         <div>
           <SectionHeading
             eyebrow="OUR STORY"
@@ -47,7 +47,7 @@ export default function OurStory() {
           </Link>
         </div>
 
-        <div className="relative min-h-80 md:min-h-105">
+        <div className="relative aspect-4/3 md:aspect-auto md:min-h-105">
           <ImageWithFallback
             src={OUR_STORY_IMAGE_URL}
             alt=""

@@ -13,7 +13,7 @@ export default async function UpcomingEvents() {
   const events = await getUpcomingEvents();
 
   return (
-    <section className="bg-white py-5 md:py-5">
+    <section className="bg-white py-14 md:py-20">
       <Container className="max-w-7xl">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-[1fr_3fr_1fr] sm:items-end">
           <div aria-hidden="true" className="hidden sm:block" />
@@ -21,7 +21,7 @@ export default async function UpcomingEvents() {
             <p className="font-body text-sm font-semibold uppercase tracking-widest text-gold">
               UPCOMING EVENTS
             </p>
-            <h2 className="mt-2 font-display text-4xl text-charcoal">
+            <h2 className="mt-2 font-display text-2xl leading-tight text-charcoal sm:text-3xl md:text-4xl">
               Coming Together to Create Impact
             </h2>
           </div>
@@ -30,7 +30,7 @@ export default async function UpcomingEvents() {
           </CtaLink>
         </div>
 
-        <div className="mt-2 grid gap-8 md:grid-cols-3">
+        <div className="mt-2 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {events.map((event) => (
             <EventPreviewCard key={event.id} event={event} />
           ))}

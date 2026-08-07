@@ -8,13 +8,13 @@ export default function Header() {
   return (
     <header className="w-full border-b border-stone bg-ivory">
       <Container>
-        <div className="flex h-20 items-center justify-between gap-6 md:h-24">
-          <Link href="/" className="group flex items-center gap-2">
+        <div className="flex h-20 items-center justify-between gap-6 lg:h-24">
+          <Link href="/" className="group flex items-center gap-2 py-2">
             <div className="flex flex-col leading-none">
-              <span className="font-display text-xl uppercase tracking-wide text-charcoal transition-colors group-hover:text-gold md:text-2xl">
+              <span className="font-display text-xl uppercase tracking-wide text-charcoal transition-colors group-hover:text-gold sm:text-2xl">
                 Caribbean
               </span>
-              <span className="font-display text-xl uppercase tracking-wide text-charcoal transition-colors group-hover:text-gold md:text-2xl">
+              <span className="font-display text-xl uppercase tracking-wide text-charcoal transition-colors group-hover:text-gold sm:text-2xl">
                 Event Society
               </span>
               <span className="mt-1.5 font-body text-[10px] font-semibold uppercase tracking-widest text-taupe">
@@ -24,8 +24,8 @@ export default function Header() {
             <SunIcon className="hidden h-5 w-5 shrink-0 text-gold sm:block" />
           </Link>
 
-          <nav aria-label="Primary" className="hidden md:block">
-            <ul className="flex items-center gap-8">
+          <nav aria-label="Primary" className="hidden lg:block">
+            <ul className="flex items-center gap-6">
               {HEADER_NAV_LINKS.map((link) => (
                 <li key={link.id}>
                   <Link
@@ -41,7 +41,7 @@ export default function Header() {
 
           <Link
             href="#"
-            className="hidden shrink-0 items-center justify-center rounded-full bg-forest px-6 py-2.5 font-body text-xs font-semibold uppercase tracking-wide text-ivory transition-opacity hover:opacity-90 md:inline-flex"
+            className="hidden shrink-0 items-center justify-center rounded-full bg-forest px-6 py-2.5 font-body text-xs font-semibold uppercase tracking-wide text-ivory transition-opacity hover:opacity-90 lg:inline-flex"
           >
             Apply for Membership
           </Link>

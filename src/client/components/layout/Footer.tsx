@@ -39,7 +39,7 @@ export default function Footer() {
 
         <div className="flex-1 px-6 py-10 md:px-10 md:py-14">
           <div className="mx-auto max-w-7xl">
-            <div className="grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-8">
+            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
               <div>
                 <div className="flex items-center gap-4">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-forest/30 text-forest">

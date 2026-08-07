@@ -7,7 +7,7 @@ import { SectionHeading } from "@/client/components/ui/SectionHeading";
 export default function JoinTheMovement() {
   return (
     <section className="bg-forest py-16 md:py-20">
-      <Container className="grid max-w-7xl gap-10 md:grid-cols-2 md:gap-12">
+      <Container className="grid max-w-7xl gap-10 sm:grid-cols-2 sm:gap-12">
         <div>
           <SectionHeading headline="Be Part of the Movement" headlineClassName="text-ivory" />
           <p className="mt-6 font-body text-base text-ivory/80">

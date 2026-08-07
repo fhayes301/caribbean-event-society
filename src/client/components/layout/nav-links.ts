@@ -5,18 +5,12 @@ export interface NavLink {
 }
 
 const ABOUT: NavLink = { id: "about", label: "About", href: "/about" };
-const MEMBERSHIP: NavLink = {
-  id: "membership",
-  label: "Membership",
-  href: "#",
-};
 const DIRECTORY: NavLink = {
   id: "directory",
   label: "Directory",
   href: "/directory",
 };
 const EVENTS: NavLink = { id: "events", label: "Events", href: "/events" };
-const RESOURCES: NavLink = { id: "resources", label: "Resources", href: "#" };
 const CONTACT: NavLink = {
   id: "contact",
   label: "Contact",
@@ -24,11 +18,6 @@ const CONTACT: NavLink = {
 };
 
 // The wordmark links home, so the nav itself starts at "About".
-export const HEADER_NAV_LINKS: NavLink[] = [
-  ABOUT,
-  MEMBERSHIP,
-  DIRECTORY,
-  EVENTS,
-  RESOURCES,
-  CONTACT,
-];
+// Membership and Resources are left out until those pages exist —
+// re-add them here once they have real routes.
+export const HEADER_NAV_LINKS: NavLink[] = [ABOUT, DIRECTORY, EVENTS, CONTACT];

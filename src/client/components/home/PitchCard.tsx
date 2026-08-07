@@ -28,14 +28,14 @@ export default function PitchCard({ content }: PitchCardProps) {
     <>
       <div
         className={cn(
-          "flex flex-col justify-center gap-4 p-8 lg:flex-1 lg:p-10",
+          "flex flex-col justify-center gap-4 p-6 sm:p-8 lg:flex-1 lg:p-10",
           TONE_CLASSES[content.tone],
         )}
       >
         <p className="font-body text-sm font-semibold uppercase tracking-widest text-gold">
           {content.eyebrow}
         </p>
-        <h3 className="font-display text-3xl">{content.headline}</h3>
+        <h3 className="font-display text-2xl leading-tight sm:text-3xl">{content.headline}</h3>
         <p className={cn("font-body text-base", BODY_TONE_CLASSES[content.tone])}>
           {content.body}
         </p>
@@ -48,7 +48,7 @@ export default function PitchCard({ content }: PitchCardProps) {
           {content.ctaLabel}
         </CtaLink>
       </div>
-      <div className="relative min-h-64 lg:flex-1">
+      <div className="relative aspect-4/3 w-full lg:aspect-auto lg:min-h-64 lg:flex-1">
         <ImageWithFallback
           src={content.imageUrl}
           alt={content.imageAlt}

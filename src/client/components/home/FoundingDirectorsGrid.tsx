@@ -1,4 +1,5 @@
 import { PersonCard } from "@/client/components/ui/PersonCard";
+import { cn } from "@/client/components/ui/cn";
 import type { FoundingDirector } from "@/types/home.types";
 import { FOUNDING_DIRECTORS } from "./founding-directors-content";
 
@@ -21,7 +22,12 @@ export default function FoundingDirectorsGrid({
   showBios = false,
 }: FoundingDirectorsGridProps) {
   return (
-    <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+    <div
+      className={cn(
+        "grid gap-6 sm:gap-8 md:grid-cols-4",
+        showBios ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2",
+      )}
+    >
       {directors.map((director) => (
         <PersonCard
           key={director.id}
