@@ -1,21 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
+import Header from "@/client/components/layout/Header";
+import Footer from "@/client/components/layout/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Cormorant Garamond and Inter are placeholder stand-ins for the licensed
+// Canela (display) and Neue Haas Grotesk (body) typefaces, pending final font files.
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Caribbean Event Society",
+  title: "Caribbean Event Society | Event Professionals Network",
   description:
-    "A curated platform for event and creative professionals in Trinidad & Tobago.",
+    "Connect with leading event professionals across Trinidad & Tobago and the Caribbean through education, networking, resources, and industry events.",
+  openGraph: {
+    title: "Caribbean Event Society | Elevating Caribbean Event Professionals",
+    description:
+      "The premier professional membership organization connecting event professionals throughout Trinidad & Tobago, the Caribbean, and its diaspora.",
+  },
 };
 
 export default function RootLayout({
@@ -26,9 +35,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${cormorantGaramond.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

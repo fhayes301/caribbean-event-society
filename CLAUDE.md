@@ -77,7 +77,7 @@ prisma/
 ├── schema.prisma
 └── migrations/
 ```
-
+Do not go outside this folder structure unless specifically asked.
 ---
 
 ## Key Architectural Patterns
