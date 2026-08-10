@@ -2,7 +2,7 @@ import { Container } from "@/client/components/ui/Container";
 import { CtaLink } from "@/client/components/ui/CtaLink";
 import { ImageWithFallback } from "@/client/components/ui/ImageWithFallback";
 
-const EVENTS_HERO_IMAGE_URL = "/images/events_hero.jpg";
+const EVENTS_HERO_IMAGE_URL = "/images/events/design-with-purpose.jpg";
 
 /** The Events Archive page's full-bleed hero banner — the page's single `<h1>`. */
 export default function Hero() {
@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-linear-to-r from-charcoal/85 via-charcoal/55 to-charcoal/10" />
       </div>
 
-      <Container className="relative max-w-7xl py-20 md:py-28">
+      <Container className="relative flex max-w-7xl flex-col justify-center py-14 sm:min-h-[45vh] sm:py-20 md:py-28">
         <p className="font-body text-sm font-semibold uppercase tracking-widest text-gold">
           EVENTS
         </p>

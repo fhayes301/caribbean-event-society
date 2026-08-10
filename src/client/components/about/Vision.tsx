@@ -7,7 +7,7 @@ const VISION_IMAGE_URL = "/images/mt.plaisir_grounds.jpg";
 /** The "Our Vision" statement alongside a photo. */
 export default function Vision() {
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white py-10 md:py-20">
       <Container className="grid max-w-7xl gap-6 md:grid-cols-2 md:gap-12">
         <div className="flex flex-col justify-center">
           <SectionHeading
