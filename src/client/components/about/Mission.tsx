@@ -6,9 +6,9 @@ import { VALUE_HIGHLIGHTS } from "./values-content";
 /** The "Our Mission" statement, boxed with the Elevate/Connect/Transform value tiles. */
 export default function Mission() {
   return (
-    <section className="bg-white py-10 md:py-20">
+    <section className="bg-linen py-10 md:py-20">
       <Container className="max-w-7xl">
-        <div className="bg-white px-6 py-8 text-center md:px-16 md:py-16">
+        <div className="px-6 text-center md:px-16">
           <SectionHeading
             eyebrow="OUR MISSION"
             headline="To elevate the standards, visibility, and long-term sustainability of the Caribbean event industry through professional development, meaningful connections, collaboration, and the promotion of excellence."

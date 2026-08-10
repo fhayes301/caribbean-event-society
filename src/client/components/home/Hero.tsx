@@ -28,7 +28,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-linear-to-r from-charcoal/85 via-charcoal/55 to-charcoal/10" />
       </div>
 
-      <Container className="relative max-w-7xl py-14 sm:py-20 md:py-28">
+      <Container className="relative flex max-w-7xl flex-col justify-center py-14 sm:min-h-[45vh] sm:py-20 md:py-28">
         <h1 className="max-w-2xl font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-6xl">
           Advancing Excellence in the Caribbean Event Industry
         </h1>

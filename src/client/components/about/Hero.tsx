@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-linear-to-r from-charcoal/85 via-charcoal/55 to-charcoal/10" />
       </div>
 
-      <Container className="relative flex min-h-80 max-w-7xl flex-col justify-center py-16 md:min-h-100 md:py-20">
+      <Container className="relative flex max-w-7xl flex-col justify-center py-14 sm:min-h-[45vh] sm:py-20 md:py-28">
         <h1 className="max-w-2xl font-display text-4xl text-ivory md:text-6xl">About CES</h1>
         <p className="mt-6 max-w-xl font-body text-lg text-ivory/90">
           Elevating the Caribbean event industry through connection, collaboration, and
